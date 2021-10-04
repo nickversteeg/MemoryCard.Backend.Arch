@@ -1,0 +1,14 @@
+<Project>
+   <PropertyGroup>
+      <LangVersion>9.0</LangVersion>
+      <TargetFramework>net5.0</TargetFramework>
+   </PropertyGroup>
+
+   <PropertyGroup>
+      <Authors>Nick Versteeg</Authors>
+   </PropertyGroup>
+
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DefineConstants>DEBUG;TRACE</DefineConstants>
+   </PropertyGroup>
+</Project>
