@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,14 +9,11 @@ using System.Threading.Tasks;
 
 namespace MemoryCard.Backend.Models
 {
-    class UserModel
+    public class UserModel : IEntity
     {
-        [Key] public string Id { get; set; }
-        public string Username { get; set; } /* Not used as key. Is unique, but may change in the future. */
-        public string EmailAddress { get; set; } /* Idem, user may want to change email addresses in the future. */
-        public string Password { get; set; }
-        // TODO Reference to other objects
-
-
+        public string Guid { get; set; }
+        public string EmailAddress { get; set; }
+        public UserCredentialsModel Credentials { get; set; }
     }
+
 }

@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MemoryCard.Backend.Models
 {
-    public class RegisterViewModel
+    public class UserCredentialsModel : IEntity
     {
-        [Required(ErrorMessage = "")]
+        public string Guid { get; set; }
         public string Username { get; set; }
-
-        [Required(ErrorMessage = "")]
-        public string EmailAddress { get; set; }
-
-        [Required(ErrorMessage = "")]
         public string Password { get; set; }
     }
 }

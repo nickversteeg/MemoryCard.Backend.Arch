@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MemoryCard.Backend.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace MemoryCard.Backend.Services
 {
     public interface IAuthService
     {
-        bool Authenticate(dynamic data);
+        string Authenticate(string username, string password);
     }
 }

@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryCard.Backend", "MemoryCard.Backend\MemoryCard.Backend.csproj", "{D972650F-4752-40EE-BBB5-3F44EAF5A331}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCard.Backend", "MemoryCard.Backend\MemoryCard.Backend.csproj", "{D972650F-4752-40EE-BBB5-3F44EAF5A331}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C74DE20D-9A99-4F05-B6BC-551E0BE3D1B7} = {C74DE20D-9A99-4F05-B6BC-551E0BE3D1B7}
 		{12AA46AE-C2F4-4BEE-8C4F-8FCE79079858} = {12AA46AE-C2F4-4BEE-8C4F-8FCE79079858}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryCard.Backend.Models", "MemoryCard.Backend.Model\MemoryCard.Backend.Models.csproj", "{12AA46AE-C2F4-4BEE-8C4F-8FCE79079858}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCard.Backend.Models", "MemoryCard.Backend.Model\MemoryCard.Backend.Models.csproj", "{12AA46AE-C2F4-4BEE-8C4F-8FCE79079858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryCard.Backend.Services", "MemoryCard.Backend.Services\MemoryCard.Backend.Services.csproj", "{C74DE20D-9A99-4F05-B6BC-551E0BE3D1B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCard.Backend.Services", "MemoryCard.Backend.Services\MemoryCard.Backend.Services.csproj", "{C74DE20D-9A99-4F05-B6BC-551E0BE3D1B7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{12AA46AE-C2F4-4BEE-8C4F-8FCE79079858} = {12AA46AE-C2F4-4BEE-8C4F-8FCE79079858}
 	EndProjectSection
@@ -21,7 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryCard.Backend.Specs", "MemoryCard.Backend.Specs\MemoryCard.Backend.Specs.csproj", "{A0393133-6727-48C4-8EC4-9C7CD6276775}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCard.Backend.Specs", "MemoryCard.Backend.Specs\MemoryCard.Backend.Specs.csproj", "{A0393133-6727-48C4-8EC4-9C7CD6276775}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCard.Backend.Database", "MemoryCard.Backend.Database\MemoryCard.Backend.Database.csproj", "{D1C15E93-EDBA-4992-9215-E87263BAA593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryCard.Backend.Repositories", "MemoryCard.Backend.Repositories\MemoryCard.Backend.Repositories.csproj", "{EE557EF8-849D-4A63-A87C-5341B8E4B2CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{A0393133-6727-48C4-8EC4-9C7CD6276775}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0393133-6727-48C4-8EC4-9C7CD6276775}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0393133-6727-48C4-8EC4-9C7CD6276775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1C15E93-EDBA-4992-9215-E87263BAA593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C15E93-EDBA-4992-9215-E87263BAA593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C15E93-EDBA-4992-9215-E87263BAA593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C15E93-EDBA-4992-9215-E87263BAA593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE557EF8-849D-4A63-A87C-5341B8E4B2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE557EF8-849D-4A63-A87C-5341B8E4B2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE557EF8-849D-4A63-A87C-5341B8E4B2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE557EF8-849D-4A63-A87C-5341B8E4B2CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
