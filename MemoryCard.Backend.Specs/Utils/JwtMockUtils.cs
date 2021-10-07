@@ -12,6 +12,8 @@ namespace MemoryCard.Backend.Specs
 {
     public static class JwtMockUtils
     {
+        public static readonly string JwtRegex = @"^([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_=]+)\.([a-zA-Z0-9_\-\+\/=]*)";
+
         public static string Issuer { get; } = Guid.NewGuid().ToString();
         public static SecurityKey SecurityKey { get; }
         public static SigningCredentials SigningCredentials { get; }

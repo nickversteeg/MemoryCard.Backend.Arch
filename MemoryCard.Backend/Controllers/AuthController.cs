@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Net.Mime;
+using System.Threading.Tasks;
 
 namespace MemoryCard.Backend.Controllers
 {
@@ -25,9 +26,9 @@ namespace MemoryCard.Backend.Controllers
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(401)]
         [Route("api/login")]
-        public IActionResult Authenticate([FromBody] string username, [FromBody] string password)
+        public async Task<IActionResult> Authenticate([FromBody] string username, [FromBody] string password)
         {
-            var token = _authService.Authenticate(username, password);
+            var token = await _authService.AuthenticateAsync(username, password);
             return string.IsNullOrEmpty(token) ? Unauthorized() : Ok(token);
         }
 

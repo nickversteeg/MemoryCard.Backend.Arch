@@ -25,8 +25,4 @@
     <ProjectReference Include="..\MemoryCard.Backend\MemoryCard.Backend.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Unit\" />
-  </ItemGroup>
-
 </Project>

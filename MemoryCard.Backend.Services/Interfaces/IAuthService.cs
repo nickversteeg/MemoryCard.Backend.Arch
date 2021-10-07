@@ -9,6 +9,6 @@ namespace MemoryCard.Backend.Services
 {
     public interface IAuthService
     {
-        string Authenticate(string username, string password);
+        Task<string> AuthenticateAsync(string username, string password);
     }
 }

@@ -20,9 +20,9 @@ namespace MemoryCard.Backend.Services.Interfaces
 
         }
 
-        public string Authenticate(string username, string password)
+        public async Task<string> AuthenticateAsync(string username, string password)
         {
-            var user = userCredentialsRepository.FindFirst(user =>
+            var user = await userCredentialsRepository.FindFirstAsync(user =>
             {
                 return user.Username == username &&
                 user.Password == password;
