@@ -23,28 +23,28 @@ namespace MemoryCard.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<UserModel> Get()
+        public IEnumerable<UserModel> Get() // api/user
         {
             return new List<UserModel>();
         }
 
         [HttpGet("{id}")]
-        public UserModel Get(string guid)
+        public UserModel Get(string guid) // api/user/{id}
         {
             return _userService.FindByGuid(guid);
         }
 
         [HttpPost]
-        public ActionResult Create(RegisterViewModel model) // api/user/create
+        public ActionResult Create([FromBody] string username, [FromBody] string emailAddress, [FromBody] string password) // api/user/create
         {
             var user = new UserModel
             {
                 Guid = Guid.NewGuid().ToString(),
-                EmailAddress = model.EmailAddress,
+                EmailAddress = emailAddress,
                 Credentials = new UserCredentialsModel
                 {
-                    Username = model.Username,
-                    Password = model.Password
+                    Username = username,
+                    Password = password
                 }
             };
 

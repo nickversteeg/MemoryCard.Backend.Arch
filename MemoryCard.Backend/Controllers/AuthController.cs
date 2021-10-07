@@ -1,6 +1,5 @@
 ﻿using MemoryCard.Backend.Models;
 using MemoryCard.Backend.Services;
-using MemoryCard.Backend.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
@@ -25,9 +24,10 @@ namespace MemoryCard.Backend.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(200, Type = typeof(string))]
         [ProducesResponseType(401)]
-        public IActionResult Authenticate([FromBody] LoginViewModel login)
+        [Route("api/login")]
+        public IActionResult Authenticate([FromBody] string username, [FromBody] string password)
         {
-            var token = _authService.Authenticate(login.Username, login.Password);
+            var token = _authService.Authenticate(username, password);
             return string.IsNullOrEmpty(token) ? Unauthorized() : Ok(token);
         }
 
