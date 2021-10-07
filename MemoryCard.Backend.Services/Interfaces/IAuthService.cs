@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemoryCard.Backend.Services
+namespace MemoryCard.Backend.Services.Interfaces
 {
     public interface IAuthService
     {

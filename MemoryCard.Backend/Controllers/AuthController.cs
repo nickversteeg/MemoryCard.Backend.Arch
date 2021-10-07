@@ -1,5 +1,6 @@
 ﻿using MemoryCard.Backend.Models;
 using MemoryCard.Backend.Services;
+using MemoryCard.Backend.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;

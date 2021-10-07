@@ -1,5 +1,6 @@
 ﻿using MemoryCard.Backend.Models;
 using MemoryCard.Backend.Repositories;
+using MemoryCard.Backend.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemoryCard.Backend.Services.Interfaces
+namespace MemoryCard.Backend.Services
 {
     public class JwtAuthService : IAuthService
     {

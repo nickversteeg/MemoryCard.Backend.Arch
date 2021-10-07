@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using MemoryCard.Backend.Controllers;
 using MemoryCard.Backend.Services;
+using MemoryCard.Backend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
@@ -36,7 +37,7 @@ namespace MemoryCard.Backend.Specs.Unit
             var response = await sut.Authenticate(username, password);
 
             response.Should().BeAssignableTo<OkObjectResult>("correct credentials should be accepted by the controller");
-            response.As<OkObjectResult>().Value.ToString().Should().MatchRegex(JwtMockUtils.JwtRegex, "the returned value should be a valid JSON Web Token");
+            response.As<OkObjectResult>().Value.ToString().Should().MatchRegex(MockUtils.JwtRegex, "the returned value should be a valid JSON Web Token");
         }
 
         [Theory]
