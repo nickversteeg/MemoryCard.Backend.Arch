@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 namespace MemoryCard.Backend.Repositories
 {
     // TODO Make async methods asynchronous
-    class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        readonly DbContext _dbContext;
+        readonly MemoryCardDbContext _dbContext;
 
-        public Repository(DbContext dbContext)
+        public Repository(MemoryCardDbContext dbContext)
         {
             _dbContext = dbContext;
         }

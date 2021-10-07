@@ -1,9 +1,11 @@
 using MemoryCard.Backend.Database;
+using MemoryCard.Backend.Repositories;
 using MemoryCard.Backend.Services;
 using MemoryCard.Backend.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -44,9 +46,13 @@ namespace MemoryCard.Backend
                 };
             });
             services.AddDbContext<MemoryCardDbContext>(options => {
+                options.UseInMemoryDatabase(databaseName: "db");
 
             });
             services.AddTransient<IAuthService, JwtAuthService>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // Typed manner of adding scopes requires known type parameters.
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

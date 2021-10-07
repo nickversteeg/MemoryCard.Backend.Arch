@@ -29,7 +29,7 @@ namespace MemoryCard.Backend.Specs.Unit
 
         [Theory]
         [InlineData("nick", "1234")]
-        public async Task AuthorizeUser_WhenCredentialsAreValid(string username, string password)
+        public async Task AuthenticateUser_WhenCredentialsAreCorrect(string username, string password)
         {
             var sut = new AuthController(_authService.Object);
 
@@ -43,7 +43,7 @@ namespace MemoryCard.Backend.Specs.Unit
         [InlineData("nick", "2345")]
         [InlineData("nack", "1234")]
         [InlineData("nack", "2345")]
-        public async Task RejectAuthorization_WhenCredentialsAreInvalid(string username, string password)
+        public async Task RejectAuthentication_WhenCredentialsAreWrong(string username, string password)
         {
             var sut = new AuthController(_authService.Object);
 
@@ -55,13 +55,13 @@ namespace MemoryCard.Backend.Specs.Unit
         [Theory]
         [InlineData("", "1234")]
         [InlineData("nick", "")]
-        public async Task RejectAuthorization_WhenInputIsInvalid(string username, string password)
+        public async Task RejectAuthentication_WhenInputIsInvalid(string username, string password)
         {
             var sut = new AuthController(_authService.Object);
 
             var response = await sut.Authenticate(username, password);
 
-            response.Should().BeAssignableTo<UnauthorizedResult>("incorrect credentials should be rejected by the controller");
+            response.Should().BeAssignableTo<UnauthorizedResult>("lack of input should be rejected by the controller");
         }
     }
 }

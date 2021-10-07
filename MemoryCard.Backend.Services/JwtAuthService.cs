@@ -13,16 +13,16 @@ namespace MemoryCard.Backend.Services.Interfaces
 {
     public class JwtAuthService : IAuthService
     {
-        IRepository<UserCredentialsModel> userCredentialsRepository;
+        private readonly IRepository<UserCredentialsModel> _userCredentialsRepository;
 
         public JwtAuthService(IRepository<UserCredentialsModel> userCredentialsRepository )
         {
-
+            _userCredentialsRepository = userCredentialsRepository;
         }
 
         public async Task<string> AuthenticateAsync(string username, string password)
         {
-            var user = await userCredentialsRepository.FindFirstAsync(user =>
+            var user = await _userCredentialsRepository.FindFirstAsync(user =>
             {
                 return user.Username == username &&
                 user.Password == password;

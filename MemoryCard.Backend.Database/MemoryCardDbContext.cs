@@ -5,6 +5,8 @@ namespace MemoryCard.Backend.Database
 {
     public class MemoryCardDbContext : DbContext
     {
+        public MemoryCardDbContext(DbContextOptions options) : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
