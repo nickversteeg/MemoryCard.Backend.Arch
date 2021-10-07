@@ -1,5 +1,6 @@
 ﻿using MemoryCard.Backend.Database;
 using MemoryCard.Backend.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,50 +12,62 @@ namespace MemoryCard.Backend.Repositories
     // TODO Make async methods asynchronous
     class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        MemoryCardDbContext dbContext;
+        readonly DbContext _dbContext;
+
+        public Repository(DbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         public IEnumerable<TEntity> GetAll()
         {
-            return dbContext.Set<TEntity>();
+            return _dbContext.Set<TEntity>();
         }
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return GetAll();
+            return await _dbContext.Set<TEntity>()
+                .ToListAsync();
         }
 
         public TEntity GetById(string guid)
         {
-            return dbContext.Set<TEntity>()
+            return _dbContext.Set<TEntity>()
                 .Where(entity => entity.Guid == guid)
                 .FirstOrDefault();
         }
 
         public async Task<TEntity> GetByIdAsync(string guid)
         {
-            return GetById(guid);
+            return await Task.Run(_dbContext.Set<TEntity>()
+                .Where(entity => entity.Guid == guid)
+                .FirstOrDefault);
         }
 
         public TEntity FindFirst(Func<TEntity, bool> predicate)
         {
-            return dbContext.Set<TEntity>()
+            return _dbContext.Set<TEntity>()
                 .Where(predicate)
                 .FirstOrDefault();
         }
         public async Task<TEntity> FindFirstAsync(Func<TEntity, bool> predicate)
         {
-            return FindFirst(predicate);
+            return await Task.Run(_dbContext.Set<TEntity>()
+                .Where(predicate)
+                .FirstOrDefault);
         }
 
         public IEnumerable<TEntity> FindRange(Func<TEntity, bool> predicate)
         {
-            return dbContext.Set<TEntity>()
+            return _dbContext.Set<TEntity>()
                 .Where(predicate);
         }
         public async Task<IEnumerable<TEntity>> FindRangeAsync(Func<TEntity, bool> predicate)
         {
-            return FindRange(predicate);
+            return await _dbContext.Set<TEntity>()
+                .Where(predicate)
+                .AsQueryable()
+                .ToListAsync();
         }
-
 
 
     }

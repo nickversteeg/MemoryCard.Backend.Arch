@@ -1,3 +1,4 @@
+using MemoryCard.Backend.Database;
 using MemoryCard.Backend.Services;
 using MemoryCard.Backend.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -41,6 +42,9 @@ namespace MemoryCard.Backend
                     ValidateAudience = false,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key))
                 };
+            });
+            services.AddDbContext<MemoryCardDbContext>(options => {
+
             });
             services.AddTransient<IAuthService, JwtAuthService>();
         }
